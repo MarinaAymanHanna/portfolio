@@ -1,0 +1,861 @@
+/* ==========================================================================
+   DevFolio - Marina Hanna Personal Portfolio
+   Based on Assignment 7 (DevFolio) with Assignment 4 (Fokir) About Me Design
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Typography & Global Styles
+   -------------------------------------------------------------------------- */
+body {
+    position: relative;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #4e4e4e;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1e1e1e;
+}
+
+a {
+    color: #0078ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #0062d3;
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Navbar with Dynamic Scroll Hide/Show (Assignment 7 ScrollSpy Active Rules)
+   -------------------------------------------------------------------------- */
+.navbar {
+    transition: transform 0.4s ease, background-color 0.4s ease, padding 0.3s ease;
+    background-color: rgba(36, 40, 50, 0.85) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    z-index: 1030;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar.navbar-reduce {
+    background-color: rgba(28, 31, 40, 0.95) !important;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.navbar.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar.navbar-visible {
+    transform: translateY(0);
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+nav .nav-item a,
+.navbar-nav .nav-link.active,
+.navbar .nav-link:hover {
+    color: #ffffff !important;
+}
+
+nav .nav-item a {
+    position: relative;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 0.5rem 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    margin-right: 10px;
+    padding-left: 0;
+}
+
+nav .nav-item a.active::after,
+.navbar-nav .nav-link.active::after,
+.nav-link.active::after {
+    position: absolute;
+    content: "";
+    width: 80% !important;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+}
+
+nav .nav-item a::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transition: 0.5s width;
+}
+
+nav .nav-item a:hover::after {
+    width: 80%;
+}
+
+/* --------------------------------------------------------------------------
+   3. Hero Section (Assignment 7 / DevFolio Exact Typography & Exterior Background)
+   -------------------------------------------------------------------------- */
+header#home {
+    background-image: url("../assets/images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+header#home .hero-overlay,
+header#home .layer,
+header#home .overlay-itro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+header#home .content {
+    position: relative;
+    z-index: 2;
+}
+
+header h1,
+.hero-name {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 4.5rem;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+}
+
+header .hero-subtitle,
+header span#element {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    min-height: 3.5rem;
+}
+
+.typed-cursor {
+    font-size: 2.2rem;
+    color: #0078ff;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.8rem;
+    border-radius: 50rem;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.hero-btn-primary {
+    background-color: #0078ff;
+    border: 2px solid #0078ff;
+    color: #ffffff;
+}
+
+.hero-btn-primary:hover {
+    background-color: #0062d3;
+    border-color: #0062d3;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 120, 255, 0.4);
+}
+
+.hero-btn-outline {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.hero-btn-outline:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #0078ff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   4. About Section (Assignment 4 / Fokir Exact Layout & Design)
+   -------------------------------------------------------------------------- */
+#about {
+    background-color: #ffffff;
+    padding: 6rem 0;
+}
+
+#about .about-border {
+    border: 10px rgba(55, 55, 55, 0.85) solid;
+    border-radius: 5px;
+    position: relative;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+#about .image {
+    position: relative;
+    top: 25px;
+    left: 20px;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    background-color: #1e1e1e;
+}
+
+#about .image img {
+    border-radius: 5px;
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+#about .layer {
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    opacity: 0;
+    height: 100%;
+    transform: translateY(100%);
+    transition: 0.8s opacity, 0.8s transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#about .image:hover .layer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#about .image:hover img {
+    transform: scale(1.05);
+}
+
+#about .layer a {
+    color: #ffffff;
+    font-size: 1.25rem;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#about .layer a:hover {
+    background: #0078ff;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+#about .about-contant h2 {
+    font-size: 34px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+    line-height: 22px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#about .about-contant h2::before {
+    content: "";
+    border: #0078ff 2px solid;
+    margin-right: 15px;
+    display: inline-block;
+    height: 24px;
+}
+
+#about .about-contant p {
+    line-height: 30px;
+    font-size: 16px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    color: rgb(85, 85, 85);
+    margin-bottom: 20px;
+}
+
+#about hr {
+    border: 0;
+    border-top: 1px dashed #cccccc;
+    margin: 20px 0;
+    opacity: 1;
+}
+
+.about-contant .data span {
+    font-weight: bold;
+    color: #1e1e1e;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.about-contant .data table {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.about-contant .data table td {
+    padding: 8px 12px 8px 0;
+    font-size: 15px;
+    color: #555555;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.about-contant .fokir-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 28px;
+    border-radius: 5px;
+    border: 2px solid #0078ff;
+    margin-right: 12px;
+    margin-top: 10px;
+    background-color: #0078ff;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    transition: 0.3s all ease;
+}
+
+.about-contant .fokir-btn:hover {
+    background-color: #0062d3;
+    border-color: #0062d3;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 120, 255, 0.35);
+}
+
+.about-contant .fokir-btn-alt {
+    background-color: transparent;
+    border: 2px solid #0078ff;
+    color: #0078ff;
+}
+
+.about-contant .fokir-btn-alt:hover {
+    background-color: #0078ff;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 120, 255, 0.35);
+}
+
+.skill-item p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 0.4rem;
+}
+
+.progress {
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 50rem;
+}
+
+.progress-bar {
+    background-color: #0078ff;
+    border-radius: 50rem;
+    transition: width 1s ease-in-out;
+}
+
+.about-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Section Header Style (Assignment 7)
+   -------------------------------------------------------------------------- */
+.section-header-devfolio {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-header-devfolio h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1e1e1e;
+    margin-bottom: 0.5rem;
+}
+
+.after-services {
+    position: relative;
+    color: #6c757d;
+    font-size: 1rem;
+    padding-bottom: 1.25rem;
+}
+
+.after-services::after {
+    content: "";
+    position: absolute;
+    background-color: #0078ff;
+    height: 4px;
+    width: 45px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --------------------------------------------------------------------------
+   6. Services Section (Assignment 7)
+   -------------------------------------------------------------------------- */
+#services {
+    background-color: #f5f5f5;
+    padding: 5rem 0;
+}
+
+#services .service-box {
+    background-color: #ffffff;
+    padding: 2.5rem 1.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.15), 0 8px 16px -8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+#services .service-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px -5px rgba(50, 50, 93, 0.25), 0 12px 20px -8px rgba(0, 0, 0, 0.2);
+}
+
+.golf {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #0078ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+    transition: 0.4s all ease;
+}
+
+.withe-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s all ease;
+}
+
+.withe-circle i {
+    font-size: 1.75rem;
+    color: #1e1e1e;
+    transition: 0.4s all ease;
+}
+
+#services .service-box:hover .golf {
+    background-color: rgba(0, 120, 255, 0.2);
+}
+
+#services .service-box:hover .withe-circle {
+    background-color: #0078ff;
+}
+
+#services .service-box:hover .withe-circle i {
+    color: #ffffff;
+}
+
+#services .service-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+    color: #1e1e1e;
+}
+
+#services .service-desc {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   7. Achievements / Stats Section (Assignment 7 Parallax)
+   -------------------------------------------------------------------------- */
+.achievements {
+    background-image: linear-gradient(rgba(0, 120, 255, 0.82), rgba(0, 120, 255, 0.82)), url("../assets/images/counters-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding: 5rem 0;
+}
+
+.achievements .border-ach {
+    background-color: transparent;
+    border: 8px solid #ffffff;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.25rem;
+}
+
+.achievements .border-ach i {
+    color: #ffffff;
+    font-size: 1.75rem;
+}
+
+.achievements .counter-num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.achievements .counter-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   8. Portfolio / Work Section (Assignment 7 Clickable Cards)
+   -------------------------------------------------------------------------- */
+#work {
+    background-color: #f5f5f5;
+    padding: 5rem 0;
+}
+
+.work-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.work-card-link:hover {
+    color: inherit;
+}
+
+.work-item {
+    transition: transform 0.4s ease;
+}
+
+.work-item .inner {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.15), 0 8px 16px -8px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-item .img-box {
+    overflow: hidden;
+    height: 220px;
+    position: relative;
+}
+
+.work-item .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.work-card-link:hover .work-item .img-box img {
+    transform: scale(1.06);
+}
+
+.work-card-link:hover .work-item .inner {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px -5px rgba(50, 50, 93, 0.25), 0 12px 20px -8px rgba(0, 0, 0, 0.2);
+}
+
+.work-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.work-content h5 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #1e1e1e;
+    transition: color 0.3s ease;
+}
+
+.work-card-link:hover .work-content h5 {
+    color: #0078ff;
+}
+
+.work-content p {
+    font-size: 0.85rem;
+    color: #4e4e4e;
+    margin-bottom: 0;
+}
+
+.work-content .tech-pill {
+    color: #0078ff;
+    font-weight: 600;
+}
+
+.work-icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #0078ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0078ff;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.work-card-link:hover .work-icon-btn {
+    background-color: #0078ff;
+    color: #ffffff;
+    transform: rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   9. Contact Section (Assignment 7 Send Message)
+   -------------------------------------------------------------------------- */
+#contact {
+    background-image: linear-gradient(rgba(0, 120, 255, 0.78), rgba(0, 120, 255, 0.78)), url("../assets/images/overlay-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding: 5rem 0;
+}
+
+.contact-box {
+    background-color: #ffffff;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3);
+    padding: 3rem 2.5rem;
+    border-radius: 8px;
+}
+
+.contact-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e1e1e;
+    position: relative;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-title::after {
+    content: "";
+    position: absolute;
+    background-color: #0078ff;
+    height: 3px;
+    width: 80px;
+    bottom: 0;
+    left: 0;
+}
+
+.form-control {
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #0078ff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 120, 255, 0.2);
+}
+
+.btn-send-message {
+    background-color: #0078ff;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 50rem;
+    padding: 0.75rem 2.25rem;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-send-message:hover {
+    background-color: #0062d3;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 120, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.contact-info-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #4e4e4e;
+}
+
+.contact-info-list i {
+    color: #0078ff;
+    font-size: 1.15rem;
+    width: 28px;
+    flex-shrink: 0;
+}
+
+.contact-social-links a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #0078ff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #0078ff;
+    font-size: 1.15rem;
+    margin-right: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.contact-social-links a:hover {
+    background-color: #0078ff;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 120, 255, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   10. Footer & Scroll to Top
+   -------------------------------------------------------------------------- */
+footer {
+    background-color: #0062d3;
+    color: #ffffff;
+    padding: 2.5rem 0;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #0078ff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background-color: #0050ac;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* --------------------------------------------------------------------------
+   11. Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 3.5rem;
+    }
+    
+    header .hero-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .about-box {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .about-img-container {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header#home,
+    .achievements,
+    #contact {
+        background-attachment: scroll;
+    }
+
+    header h1 {
+        font-size: 2.6rem;
+    }
+    
+    header .hero-subtitle {
+        font-size: 1.4rem;
+    }
+
+    .about-img-box img {
+        height: 360px;
+    }
+
+    .contact-box {
+        padding: 2rem 1.25rem;
+    }
+}
